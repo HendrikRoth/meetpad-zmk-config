@@ -1,0 +1,8 @@
+file_format: "1"
+id: meetpad
+name: MEETPAD
+type: shield
+url: https://github.com/HendrikRoth/meetpad/tree/master/zmk-config
+requires: [pro_micro]
+features:
+  - keys

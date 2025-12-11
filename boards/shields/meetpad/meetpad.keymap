@@ -7,8 +7,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/hid_usage.h>
-#include <dt-bindings/zmk/hid_usage_pages.h>
 
 / {
 
@@ -37,8 +35,9 @@
                 &kp a
                 &kp w
                 &kp e
+                &kp C_MUTE
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &kp C_MUTE>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };

@@ -20,14 +20,15 @@
     };
 
     keymap {
-        compatible = "zmk,keymap";
-
+        compatible = "zmk,keymap";z
         default_layer {
             display-name = "Default Layer";
             bindings = <
-                &kp X
-                &kp Z
+                &kp a
+                &kp w
+                &kp e
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &kp C_MUTE>;
         };
     };
 };

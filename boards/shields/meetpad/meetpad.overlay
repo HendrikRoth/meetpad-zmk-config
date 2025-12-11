@@ -8,14 +8,14 @@
         input-gpios =
             <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
             <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
-            <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
-            <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     };
 
     encoder: encoder {
         compatible = "alps,ec11";
         a-gpios = <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        encoder-button-gpios = <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };

@@ -24,9 +24,9 @@
         default_layer {
             display-name = "Default Layer";
             bindings = <
-            &kp A &kp W &kp E &kp C_MUTE
+            &kp A &kp W &kp E
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>, <&kp C_MUTE>;
         };
     };
 };

@@ -9,25 +9,16 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    keymap {
+        compatible = "zmk,keymap";
 
-    chosen {
-        zmk,kscan = &default_kscan;
-        zmk,battery = &vbatt;
-    };
-
-    vbatt: vbatt {
-            compatible = "zmk,battery-nrf-vddh";
-            label = "VBATT";
-    };
-
-    default_kscan: kscan {
-        compatible = "zmk,kscan-gpio-direct";
         default_layer {
             display-name = "Default Layer";
             bindings = <
-            &kp A &kp W &kp E &kp C_MUTE
+                &kp A &kp W &kp E &kp C_MUTE
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+
+            sensor-bindings = <&inc_dec_consumer C_VOL_DN C_VOL_UP>;
         };
     };
 };

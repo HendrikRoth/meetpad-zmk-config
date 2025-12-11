@@ -1,6 +1,12 @@
 / {
     chosen {
         zmk,kscan = &default_kscan;
+        zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+            compatible = "zmk,battery-nrf-vddh";
+            label = "VBATT";
     };
 
     default_kscan: kscan {

@@ -20,8 +20,8 @@
             label = "VBATT";
     };
 
-    keymap {
-        compatible = "zmk,keymap";
+    default_kscan: kscan {
+        compatible = "zmk,kscan-gpio-direct";
         default_layer {
             display-name = "Default Layer";
             bindings = <

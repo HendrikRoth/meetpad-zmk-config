@@ -19,6 +19,15 @@
             label = "VBATT";
     };
 
+    sensors {
+        compatible = "zmk,sensors";
+
+        sensor@0 {
+            status = "okay";
+            bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &kp C_MUTE>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -28,7 +37,6 @@
                 &kp w
                 &kp e
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &kp C_MUTE>;
         };
     };
 };

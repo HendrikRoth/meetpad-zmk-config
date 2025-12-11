@@ -11,6 +11,8 @@
 
     default_kscan: kscan {
         compatible = "zmk,kscan-gpio-direct";
+        label = "KSCAN";
+
         input-gpios =
             <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
             <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>,
@@ -22,13 +24,13 @@
         compatible = "alps,ec11";
         a-gpios = <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
+        resolution = <4>;
         status = "okay";
     };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
+        status = "okay";
         sensors = <&encoder>;
-        triggers-per-rotation = <20>;
     };
 };

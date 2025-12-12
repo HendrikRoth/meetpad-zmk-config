@@ -4,7 +4,6 @@
 
 / {
     behaviors {
-        // Das Hold-Tap Behavior
         bt_ht: bt_ht {
             compatible = "zmk,behavior-hold-tap";
             label = "BT_HOLD_TAP";
@@ -14,7 +13,6 @@
             bindings = <&m_hold_wrapper>, <&kp>;
         };
 
-        // Hilfs-Behavior, um den Parameter des Hold-Tap zu "verschlucken"
         m_hold_wrapper: m_hold_wrapper {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_WRAPPER";
@@ -24,18 +22,43 @@
             bindings = <&none>, <&none>;
         };
 
-        // Deine Pairing Makros
-        bt_pair_1: bt_pair_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR &bt BT_SEL 1>; };
-        bt_pair_2: bt_pair_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR &bt BT_SEL 2>; };
-        bt_pair_3: bt_pair_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR &bt BT_SEL 3>; };
+        bt_pair_1: bt_pair_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR &bt BT_SEL 1>;
+        };
 
-        // Die Bluetooth-Selektoren als Makros
-        m_bs_1: m_bs_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
-        m_bs_2: m_bs_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
-        m_bs_3: m_bs_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
+        bt_pair_2: bt_pair_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR &bt BT_SEL 2>;
+        };
+
+        bt_pair_3: bt_pair_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR &bt BT_SEL 3>;
+        };
+
+        m_bs_1: m_bs_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+        m_bs_2: m_bs_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>;
+        };
+
+        m_bs_3: m_bs_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>;
+        };
     };
 
-    // Hilfs-Definitionen um die Keymap sauber zu halten
     #define BT_1 &bt_ht &m_bs_1 LS(LG(M))
     #define BT_2 &bt_ht &m_bs_2 LS(LG(K))
     #define BT_3 &bt_ht &m_bs_3 LS(LG(O))

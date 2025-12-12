@@ -4,62 +4,41 @@
 
 / {
     behaviors {
-        bt_1_long: bt_1_long {
+        // Das Hold-Tap Behavior
+        bt_ht: bt_ht {
             compatible = "zmk,behavior-hold-tap";
-            label = "BT_1_10S_SELECT";
+            label = "BT_HOLD_TAP";
             flavor = "tap-preferred";
             tapping-term-ms = <10000>;
-            bindings = <&m_bt_sel_1>, <&m_kp_m>;
             #binding-cells = <2>;
+            bindings = <&m_hold_wrapper>, <&kp>;
         };
 
-        bt_2_long: bt_2_long {
+        // Hilfs-Behavior, um den Parameter des Hold-Tap zu "verschlucken"
+        m_hold_wrapper: m_hold_wrapper {
             compatible = "zmk,behavior-hold-tap";
-            label = "BT_2_10S_SELECT";
-            flavor = "tap-preferred";
-            tapping-term-ms = <10000>;
-            bindings = <&m_bt_sel_2>, <&m_kp_k>;
+            label = "HOLD_WRAPPER";
             #binding-cells = <2>;
+            tapping-term-ms = <0>;
+            flavor = "hold-preferred";
+            bindings = <&none>, <&none>;
         };
 
-        bt_3_long: bt_3_long {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BT_3_10S_SELECT";
-            flavor = "tap-preferred";
-            tapping-term-ms = <10000>;
-            bindings = <&m_bt_sel_3>, <&m_kp_o>;
-            #binding-cells = <2>;
-        };
+        // Deine Pairing Makros
+        bt_pair_1: bt_pair_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR &bt BT_SEL 1>; };
+        bt_pair_2: bt_pair_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR &bt BT_SEL 2>; };
+        bt_pair_3: bt_pair_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR &bt BT_SEL 3>; };
 
-        m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&bt BT_SEL 1>; };
-        m_bt_sel_2: m_bt_sel_2 { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&bt BT_SEL 2>; };
-        m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&bt BT_SEL 3>; };
-
-        m_kp_m: m_kp_m { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(LS(M))>; };
-        m_kp_k: m_kp_k { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(LS(K))>; };
-        m_kp_o: m_kp_o { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(LS(O))>; };
-
-        bt_pair_1: bt_pair_1 {
-            compatible = "zmk,behavior-macro";
-            label = "BT_PAIR_1";
-            #binding-cells = <0>;
-            bindings = <&bt BT_CLR &bt BT_SEL 1>;
-        };
-
-        bt_pair_2: bt_pair_2 {
-            compatible = "zmk,behavior-macro";
-            label = "BT_PAIR_2";
-            #binding-cells = <0>;
-            bindings = <&bt BT_CLR &bt BT_SEL 2>;
-        };
-
-        bt_pair_3: bt_pair_3 {
-            compatible = "zmk,behavior-macro";
-            label = "BT_PAIR_3";
-            #binding-cells = <0>;
-            bindings = <&bt BT_CLR &bt BT_SEL 3>;
-        };
+        // Die Bluetooth-Selektoren als Makros
+        m_bs_1: m_bs_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+        m_bs_2: m_bs_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
+        m_bs_3: m_bs_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
     };
+
+    // Hilfs-Definitionen um die Keymap sauber zu halten
+    #define BT_1 &bt_ht &m_bs_1 LS(LG(M))
+    #define BT_2 &bt_ht &m_bs_2 LS(LG(K))
+    #define BT_3 &bt_ht &m_bs_3 LS(LG(O))
 
     keymap {
         compatible = "zmk,keymap";
@@ -67,9 +46,9 @@
         default_layer {
             display-name = "0_DEFAULT";
             bindings = <
-                &bt_1_long 0 0
-                &bt_2_long 0 0
-                &bt_3_long 0 0
+                BT_1
+                BT_2
+                BT_3
                 &kp C_MUTE
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;

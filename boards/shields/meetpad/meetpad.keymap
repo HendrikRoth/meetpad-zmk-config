@@ -58,11 +58,22 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Default Layer";
+            display-name = "0_DEFAULT (Nn / BT Select)";
             bindings = <
-                &kp LG(LS(M))
-                &kp LG(LS(K))
-                &kp LG(LS(O))
+                &bt_1_long
+                &bt_2_long
+                &bt_3_long
+                &kp C_MUTE
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        layer_bt {
+            display-name = "1_BT_PAIRING";
+            bindings = <
+                &bt_pair_1
+                &bt_pair_2
+                &bt_pair_3
                 &kp C_MUTE
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;

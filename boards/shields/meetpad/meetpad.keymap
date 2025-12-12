@@ -15,9 +15,9 @@
         default_layer {
             display-name = "Default Layer";
             bindings = <
-                &kp LG(LSFT(M))
-                &kp LG(LSFT(K))
-                &kp LG(LSFT(O))
+                &kp LSG(M)
+                &kp LSG(K)
+                &kp LSG(O)
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };

@@ -10,7 +10,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <10000>;
             bindings = <&m_bt_sel_1>, <&m_kp_m>;
-            #binding-cells = <0>;
+            #binding-cells = <2>;
         };
 
         bt_2_long: bt_2_long {
@@ -19,7 +19,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <10000>;
             bindings = <&m_bt_sel_2>, <&m_kp_k>;
-            #binding-cells = <0>;
+            #binding-cells = <2>;
         };
 
         bt_3_long: bt_3_long {
@@ -28,16 +28,16 @@
             flavor = "tap-preferred";
             tapping-term-ms = <10000>;
             bindings = <&m_bt_sel_3>, <&m_kp_o>;
-            #binding-cells = <0>;
+            #binding-cells = <2>;
         };
 
-        m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
-        m_bt_sel_2: m_bt_sel_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
-        m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
+        m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&bt BT_SEL 1>; };
+        m_bt_sel_2: m_bt_sel_2 { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&bt BT_SEL 2>; };
+        m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&bt BT_SEL 3>; };
 
-        m_kp_m: m_kp_m { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(LS(M))>; };
-        m_kp_k: m_kp_k { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(LS(K))>; };
-        m_kp_o: m_kp_o { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&kp LG(LS(O))>; };
+        m_kp_m: m_kp_m { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(LS(M))>; };
+        m_kp_k: m_kp_k { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(LS(K))>; };
+        m_kp_o: m_kp_o { compatible = "zmk,behavior-macro"; #binding-cells = <1>; bindings = <&kp LG(LS(O))>; };
 
         bt_pair_1: bt_pair_1 {
             compatible = "zmk,behavior-macro";
@@ -67,9 +67,9 @@
         default_layer {
             display-name = "0_DEFAULT";
             bindings = <
-                &bt_1_long
-                &bt_2_long
-                &bt_3_long
+                &bt_1_long 0 0
+                &bt_2_long 0 0
+                &bt_3_long 0 0
                 &kp C_MUTE
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
